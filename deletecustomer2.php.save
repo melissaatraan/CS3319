@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8">
+ </head>
+ <body>
+ <?php
+ include 'connect.php';
+ ?>
+ <h1>Here are the customers:</h1>
+<h4>Deletion successful.</h4>
+<ol>
+ <?php
+    $answer=$_POST["whichcus"];
+	echo "$answer";	
+    "D
+ <?php
+    mysqli_close($cELETE FROM customer WHERE cusID=$answer";	
+    $query = 'SELECT * FROM customer';
+    $result=mysqli_query($connection,$query);
+     if (!$result) {
+          die("database query failed in getcustomer.php.");
+      }
+     while ($row=mysqli_fetch_assoc($result)) {
+  	 echo "<li>";
+         echo $row["firstname"] . " - " . $row["lastname"] . " - " . $row["phonenumber"] . " - " . $row["agentID"] . " - " . $row["cusID"] . " - " . $row["city"];
+         echo "<br>";
+      }
+      mysqli_free_result($result);
+ ?>
+</ol>
+ <?php
+    mysqli_close($connection);
+ ?>
+ </body>
+ </html>
